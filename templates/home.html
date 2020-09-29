@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+Lesley & Pedro's Guest Book
+{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to the Guest Book!</h1>
+</div>
+<div class="row">
+    <div class="col col-xs-12 col-sm-11 col-md-10 col-lg-8 col-xl-6">
+        <form method="POST" id="guestbook_form">
+            {{form.hidden_tag() }}
+            {% for field in form
+                if field.widget.input_type != 'hidden' %}
+            <p>
+                {{ field.label }}
+                {{ field(class_="form-control") }}
+        
+                {% for error in field.errors %}
+                <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+            </p>
+            {% endfor %}
+        
+          <button class="btn btn-primary btn-lg btn-block">Send my message / Enviar mi mensaje</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
