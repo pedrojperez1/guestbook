@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, render_template, redirect, flash, session, g
+from flask import Flask, request, render_template, redirect, flash, url_for
 
 from models import db, connect_db, GuestbookEntry
 from forms import GuestbookEntryForm
@@ -30,8 +30,14 @@ def home_route():
             flash("Unexpected error. Please try again!")
             return render_template('home.html', form=form)
 
-        return render_template('thank_you.html', name=form.name.data)
+        return redirect(url_for('thank_you', name=form.name.data))
 
     else:
         return render_template('home.html', form=form)
 
+@app.route('/thank_you', methods=['GET'])
+def thank_you():
+    """Thank you route"""
+    name = request.args.get('name').split(' ')[0]
+
+    return render_template('thank_you.html', name=name)

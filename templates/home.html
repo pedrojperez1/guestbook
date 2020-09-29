@@ -4,10 +4,16 @@ Lesley & Pedro's Guest Book
 {% endblock %}
 
 {% block content %}
-<div class="jumbotron">
-    <h1 class="display-4">Welcome to the Guest Book!</h1>
+<div class="container-fluid cool-header text-center p-5 mx-0 mb-5">
+    <div class="cool-bg"></div>
+    <div class="cool-text">
+        <h1 class="display-3 font-weight-bold">Welcome to our guest book!</h1>
+        <h1 class="display-6">Falmouth, MA</h1>
+        <h1 class="display-6">10.01.2020</h1>
+    </div>
+
 </div>
-<div class="row">
+<div class="row justify-content-center">
     <div class="col col-xs-12 col-sm-11 col-md-10 col-lg-8 col-xl-6">
         <form method="POST" id="guestbook_form">
             {{form.hidden_tag() }}
@@ -23,7 +29,7 @@ Lesley & Pedro's Guest Book
             </p>
             {% endfor %}
         
-          <button class="btn btn-primary btn-lg btn-block">Send my message / Enviar mi mensaje</button>
+          <button class="btn btn-primary btn-lg btn-block">Send | Enviar</button>
         </form>
     </div>
 </div>

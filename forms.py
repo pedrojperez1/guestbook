@@ -5,5 +5,5 @@ from wtforms.validators import DataRequired
 
 class GuestbookEntryForm(FlaskForm):
     """Form for adding GuestbookEntry"""
-    name = StringField('Your name / Tu nombre', validators=[DataRequired()])
-    message = TextAreaField('Your message / Tu mensaje', validators=[DataRequired()])
+    name = StringField('Name | Nombre', validators=[DataRequired()])
+    message = TextAreaField('Message | Mensaje', validators=[DataRequired()])
