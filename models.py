@@ -8,6 +8,7 @@ def connect_db(app):
 
 class GuestbookEntry(db.Model):
     """Guest book entry model"""
+    __tablename__ = 'guestbook'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String, nullable=False)
